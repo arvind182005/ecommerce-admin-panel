@@ -42,11 +42,11 @@ function Store() {
   const fetchData = async () => {
     try {
       const [sRes, iRes, uRes, pRes, statRes] = await Promise.all([
-        fetch("http://localhost:5000/api/stores"),
-        fetch("http://localhost:5000/api/inventory"),
-        fetch("http://localhost:5000/api/users"),
-        fetch("http://localhost:5000/api/products"),
-        fetch("http://localhost:5000/api/stores/stats"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/stores"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/inventory"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/users"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/products"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/stores/stats"),
       ]);
 
       const [sData, iData, uData, pData, statData] = await Promise.all([
@@ -81,7 +81,7 @@ function Store() {
   const handleStoreSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/stores/add", {
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/stores/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(storeForm),
@@ -111,7 +111,7 @@ function Store() {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/api/inventory/add", {
+    const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/inventory/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

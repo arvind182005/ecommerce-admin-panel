@@ -26,7 +26,7 @@ function Category() {
 
   const fetchCategories = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/categories");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/categories");
       const data = await res.json();
       if (res.ok) setCategories(data);
     } catch (err) {
@@ -36,7 +36,7 @@ function Category() {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/categories/stats");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/categories/stats");
       const data = await res.json();
       if (res.ok) {
         setStats({
@@ -89,7 +89,7 @@ function Category() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/categories/${selectedCat._id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/categories/${selectedCat._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -110,7 +110,7 @@ function Category() {
   // 3. TOGGLE STATUS ACTION
   const handleToggleStatus = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/categories/${id}/status`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/categories/${id}/status`, {
         method: "PATCH",
       });
       if (res.ok) {
@@ -126,7 +126,7 @@ function Category() {
   const handleDelete = async (id) => {
     if (!window.confirm("Do you want to delete?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/categories/${id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/categories/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -142,7 +142,7 @@ function Category() {
   const handleAddSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/categories/add", {
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/categories/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

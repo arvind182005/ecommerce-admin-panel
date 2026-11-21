@@ -37,7 +37,7 @@ function Users() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/users");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/users");
       const data = await res.json();
       if (res.ok) setUsers(data);
     } catch (err) {
@@ -47,7 +47,7 @@ function Users() {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/users/stats");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/users/stats");
       const data = await res.json();
       if (res.ok) {
         setUserStats({
@@ -88,7 +88,7 @@ function Users() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${selectedUser._id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/users/${selectedUser._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -111,7 +111,7 @@ function Users() {
   // 3. TOGGLE STATUS
   const handleToggleStatus = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${id}/status`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/users/${id}/status`, {
         method: "PATCH",
       });
       if (res.ok) {
@@ -128,7 +128,7 @@ function Users() {
   const handleDeleteUser = async (id) => {
     if (!window.confirm("User delete karna hai?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/users/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -145,7 +145,7 @@ function Users() {
   const handleAddUserSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/users/add", {
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/users/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

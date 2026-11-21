@@ -40,11 +40,11 @@ function Product() {
   const fetchAllDependencies = async () => {
     try {
       const [pRes, cRes, sRes, bRes, statRes] = await Promise.all([
-        fetch("http://localhost:5000/api/products"),
-        fetch("http://localhost:5000/api/categories"),
-        fetch("http://localhost:5000/api/subcategories"),
-        fetch("http://localhost:5000/api/brands"),
-        fetch("http://localhost:5000/api/products/stats"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/products"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/categories"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/subcategories"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/brands"),
+        fetch("https://ecommerce-backend-api-2r29.onrender.com/api/products/stats"),
       ]);
 
       const [pData, cData, sData, bData, statData] = await Promise.all([
@@ -108,7 +108,7 @@ function Product() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${selectedProd._id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/products/${selectedProd._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -130,7 +130,7 @@ function Product() {
   // 3. TOGGLE ACTIVE
   const handleToggleActive = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${id}/status`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/products/${id}/status`, {
         method: "PATCH",
       });
       if (res.ok) {
@@ -145,7 +145,7 @@ function Product() {
   // 4. TOGGLE FEATURED
   const handleToggleFeatured = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${id}/featured`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/products/${id}/featured`, {
         method: "PATCH",
       });
       if (res.ok) {
@@ -161,7 +161,7 @@ function Product() {
   const handleDelete = async (id) => {
     if (!window.confirm("Kya aap is product ko delete karna chahte hain?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/products/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -183,7 +183,7 @@ function Product() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/products/add", {
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/products/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -36,7 +36,7 @@
 //   //  Fetch Users List
 //   const fetchUsers = async () => {
 //     try {
-//       const res = await fetch("http://localhost:5000/api/users");
+//       const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/users");
 //       const data = await res.json();
 //       if (res.ok) {
 //         setUsers(data);
@@ -49,7 +49,7 @@
 //   //  Fetch User Stats
 //   const fetchStats = async () => {
 //     try {
-//       const res = await fetch("http://localhost:5000/api/users/stats");
+//       const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/users/stats");
 //       const data = await res.json();
 //       if (res.ok) {
 //         setUserStats({
@@ -80,7 +80,7 @@
 //     if (!window.confirm("Are you sure to delete this user?")) return;
 
 //     try {
-//       const res = await fetch(`http://localhost:5000/api/users/${id}`, {
+//       const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/users/${id}`, {
 //         method: "DELETE",
 //       });
 //       if (res.ok) {
@@ -101,7 +101,7 @@
 //     setModalLoading(true);
 
 //     try {
-//       const response = await fetch("http://localhost:5000/api/users/add", {
+//       const response = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/users/add", {
 //         method: "POST",
 //         headers: { "Content-Type": "application/json" },
 //         body: JSON.stringify(modalData),

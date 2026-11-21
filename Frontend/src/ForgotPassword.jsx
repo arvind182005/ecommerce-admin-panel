@@ -13,7 +13,7 @@ function ForgotPassword() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/forgot-password", {
+      const response = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/forgot-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

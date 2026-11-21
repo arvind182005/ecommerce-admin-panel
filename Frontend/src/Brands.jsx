@@ -27,7 +27,7 @@ function Brands() {
 
   const fetchBrands = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/brands");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/brands");
       const data = await res.json();
       if (res.ok) setBrands(data);
     } catch (err) {
@@ -37,7 +37,7 @@ function Brands() {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/brands/stats");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/brands/stats");
       const data = await res.json();
       if (res.ok) {
         setStats({
@@ -89,7 +89,7 @@ function Brands() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/brands/${selectedBrand._id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/brands/${selectedBrand._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -113,7 +113,7 @@ function Brands() {
   // 3. TOGGLE STATUS
   const handleToggleStatus = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/brands/${id}/status`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/brands/${id}/status`, {
         method: "PATCH",
       });
       if (res.ok) {
@@ -132,7 +132,7 @@ function Brands() {
   const handleDelete = async (id) => {
     if (!window.confirm("Kya aap is brand ko delete karna chahte hain?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/brands/${id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/brands/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -151,7 +151,7 @@ function Brands() {
   const handleAddSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/brands/add", {
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/brands/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

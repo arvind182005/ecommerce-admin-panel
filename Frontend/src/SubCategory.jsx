@@ -30,7 +30,7 @@ function SubCategory() {
   // 1. Fetch SubCategories
   const fetchSubCategories = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/subcategories");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/subcategories");
       const data = await res.json();
       if (res.ok) setSubCategories(data);
     } catch (err) {
@@ -41,7 +41,7 @@ function SubCategory() {
   // 2. Fetch Parent Categories (Dropdown me dikhane ke liye)
   const fetchCategoriesList = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/categories");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/categories");
       const data = await res.json();
       if (res.ok) setCategoriesList(data);
     } catch (err) {
@@ -52,7 +52,7 @@ function SubCategory() {
   // 3. Fetch Stats
   const fetchStats = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/subcategories/stats");
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/subcategories/stats");
       const data = await res.json();
       if (res.ok) {
         setStats({
@@ -106,7 +106,7 @@ function SubCategory() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/subcategories/${selectedSubCat._id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/subcategories/${selectedSubCat._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -130,7 +130,7 @@ function SubCategory() {
   // TOGGLE STATUS
   const handleToggleStatus = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/subcategories/${id}/status`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/subcategories/${id}/status`, {
         method: "PATCH",
       });
       if (res.ok) {
@@ -149,7 +149,7 @@ function SubCategory() {
   const handleDelete = async (id) => {
     if (!window.confirm("Kya aap is SubCategory ko delete karna chahte hain?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/subcategories/${id}`, {
+      const res = await fetch(`https://ecommerce-backend-api-2r29.onrender.com/api/subcategories/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -174,7 +174,7 @@ function SubCategory() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/subcategories/add", {
+      const res = await fetch("https://ecommerce-backend-api-2r29.onrender.com/api/subcategories/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
