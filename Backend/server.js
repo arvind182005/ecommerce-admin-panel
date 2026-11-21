@@ -9,10 +9,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database connect -
+// Database connect - (for local machine)
+// mongoose
+//   .connect("mongodb://127.0.0.1:27017/AJ")
+//   .then(() => console.log("MongoDB Connected to database: AJ"))
+//   .catch((err) => console.log("DB Error:", err));
+
+const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/AJ";
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/AJ")
-  .then(() => console.log("MongoDB Connected to database: AJ"))
+  .connect(MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Connected successfully!");
+    if (typeof seedMasterAdmin === "function") {
+      seedMasterAdmin();
+    }
+  })
   .catch((err) => console.log("DB Error:", err));
 
 //  User Schema
@@ -119,8 +131,8 @@ const otpStore = {};
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "jangidarvind943@gmail.com", 
-    pass: "hbbjkjvtjqwfxpvm", 
+    user: process.env.EMAIL_USER || "jangidarvind943@gmail.com",
+    pass: process.env.EMAIL_PASS || "hbbjkjvtjqwfxpvm",
   },
 });
 
@@ -1104,7 +1116,8 @@ app.post("/api/inventory/add", async (req, res) => {
 
 
 
-// 5. Server listen
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+// 5. Server listen (Dynamic port for Render + Local fallback)
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
